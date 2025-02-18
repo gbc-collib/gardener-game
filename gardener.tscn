@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctqca2geobxig"]
+
+[ext_resource type="Script" path="res://gardener.gd" id="1_wdvq1"]
+[ext_resource type="Texture2D" uid="uid://by4qsdnhyhx6a" path="res://assets/Silly_Placeholders.png" id="2_q3dte"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0d67"]
+size = Vector2(12, 16)
+
+[node name="gardener" type="CharacterBody2D"]
+position = Vector2(6, 8)
+script = ExtResource("1_wdvq1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_q3dte")
+region_enabled = true
+region_rect = Rect2(66.5189, 64.736, 12.4266, 16.2502)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t0d67")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+modulate = Color(0.227451, 1, 1, 1)
+self_modulate = Color(0.211765, 1, 1, 1)
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
