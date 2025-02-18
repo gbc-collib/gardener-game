@@ -1,20 +1,16 @@
 extends "res://Interactable.gd"
-@export var default_tree_scene: PackedScene  # Default bonsai tree
 var tree_scene: PackedScene = null
 var has_tree = false
+@export var bonsai_menu_scene: PackedScene
+var bonsai_menu = null
 
 
 func _ready():
-	connect("input_event", _on_click)
-	if not tree_scene:
-		tree_scene = default_tree_scene  # Use default if none is assigned
-
-func _on_click(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.pressed:
-		if not has_tree:
-			place_tree()
-		else:
-			interact()
+	# Create bonsai menu instance
+	bonsai_menu = bonsai_menu_scene.instantiate()
+	bonsai_menu.action_selected.connect(_on_action_selected)
+	get_tree().root.add_child(bonsai_menu)  # Add menu to scene
+	pass
 
 func place_tree():
 	if tree_scene:
@@ -23,5 +19,16 @@ func place_tree():
 		get_parent().add_child(tree)
 		has_tree = true
 
+func _on_action_selected(action: String):
+	match action:
+		"plant":
+			place_tree()
+		"water":
+			print("Watering the tree!")
+		"prune":
+			print("Pruning the tree!")
+	bonsai_menu.hide_menu()
+
+
 func interact():
-	print("Interacting with tree! (Prune, Water, etc.)")
+	bonsai_menu.show_menu(has_tree, false, global_position + Vector2(0, -30))

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4h8wvrhjbhbl"]
+[gd_scene load_steps=5 format=3 uid="uid://b4h8wvrhjbhbl"]
 
 [ext_resource type="Script" path="res://bonsai_spot.gd" id="1_70nsu"]
-[ext_resource type="Texture2D" uid="uid://by4qsdnhyhx6a" path="res://assets/Silly_Placeholders.png" id="2_k47tx"]
+[ext_resource type="PackedScene" uid="uid://c487n6hgkxx1g" path="res://bonsai_menu.tscn" id="2_0r8ty"]
+[ext_resource type="Texture2D" uid="uid://dudwb5pj8eh5p" path="res://assets/bonsais/junipers.png" id="2_iwc5y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jticn"]
 size = Vector2(16, 16)
@@ -11,12 +12,13 @@ size = Vector2(16, 16)
 [node name="BonsaiSpot" type="Area2D" parent="."]
 position = Vector2(-7, 3)
 script = ExtResource("1_70nsu")
+bonsai_menu_scene = ExtResource("2_0r8ty")
 
 [node name="Sprite2D" type="Sprite2D" parent="BonsaiSpot"]
 position = Vector2(88, -10)
-texture = ExtResource("2_k47tx")
+texture = ExtResource("2_iwc5y")
 region_enabled = true
-region_rect = Rect2(47.7197, 65.4615, 16.2502, 14.3384)
+region_rect = Rect2(16, 37, 17, 11)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="BonsaiSpot"]
 position = Vector2(42, -9)

@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://c487n6hgkxx1g"]
+
+[ext_resource type="Script" path="res://bonsai_menu.gd" id="1_pskbc"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_57he6"]
+size = Vector2(16, 16)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_pskbc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="WaterButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Water
+"
+icon = SubResource("PlaceholderTexture2D_57he6")
+flat = true
+
+[node name="PlantButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Plant
+"
+
+[node name="PruneButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Prune"

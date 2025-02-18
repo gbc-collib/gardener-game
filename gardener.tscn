@@ -19,7 +19,7 @@ region_rect = Rect2(66.5189, 64.736, 12.4266, 16.2502)
 shape = SubResource("RectangleShape2D_t0d67")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 modulate = Color(0.227451, 1, 1, 1)
